@@ -2,6 +2,8 @@
 
 void my_sort(int *arr, const int size);
 
+void print_array(const char* comment, int* arr, int size);
+
 int main() {
 	int size;
 	std::cout << "Введите размер массива: ";
@@ -13,19 +15,12 @@ int main() {
 	for (int i = 0; i < size; i++) {
 		std::cin >> arr[i];
 	}
-	std::cout << "Массив до сортировки: ";
-	for (int i = 0; i < size; i++) {
-		std::cout << arr[i] << " ";
-	}
-	std::cout << "\n";
+	
+	print_array("Массив до сортировки:", arr, size);
 
 	my_sort(arr, size);
 
-	std::cout << "Массив после сортировки: ";
-	for (int i = 0; i < size; i++) {
-		std::cout << arr[i] << " ";
-	}
-	std::cout << "\n";
+	print_array("Массив после сортировки:", arr, size);
 
 	return 0;
 }
@@ -40,4 +35,11 @@ void my_sort(int *arr, const int size) {
 			}
 		}
 	}
+}
+void print_array(const char* comment, int* arr, int size) {
+	std::cout << comment << " ";
+	for (int i = 0; i < size; i++) {
+		std::cout << arr[i] << " ";
+	}
+	std::cout << "\n";
 }
